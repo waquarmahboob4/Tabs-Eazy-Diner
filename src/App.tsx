@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { Tabs } from './Components/Tabs/tabs'
+import { TabsContent } from './Components/Tabs/tabsContent';
 
 function App() {
+  const [selectedTab, setSelectedTab] = useState<string>('Tab1')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+     <Tabs tabName={'Tab1'} selectedTab={selectedTab} setSelectedTab={setSelectedTab}/>
+     <TabsContent tabName={'Tab1'} selectedTab={selectedTab}>
+      <h1>Tab1</h1>
+      </TabsContent>
+        
+
+
+      <Tabs tabName={'Tab2'} selectedTab={selectedTab} setSelectedTab={setSelectedTab}/>
+     <TabsContent tabName={'Tab2'} selectedTab={selectedTab}>
+      <h1>Tab2</h1>
+      </TabsContent>
+     
     </div>
   );
 }
