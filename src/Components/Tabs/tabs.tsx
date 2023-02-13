@@ -1,7 +1,13 @@
-export const Tabs = ({tabName,selectedTab,setSelectedTab}:any) => {
+import { Children } from "react";
+
+export const Tabs = ({ children, selectedTab }: any) => {
   return (
-    <div className={selectedTab === tabName ? "active" : ""}>
-      <button onClick={() => setSelectedTab(tabName)}>{tabName}</button>
-    </div>
+    <>
+      {Children.map(children, (child) => (
+        <div className={selectedTab === child.props.tabName ? "active" : ""}>
+          {child}
+        </div>
+      ))}
+    </>
   );
 };

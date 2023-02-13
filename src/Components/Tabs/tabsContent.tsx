@@ -1,11 +1,11 @@
-export const TabsContent= ({
-  children,
-  tabName,
-  selectedTab,
-}: any) => {
+import { Children } from "react";
+export const TabsContent = ({ children, selectedTab }: any) => {
   return (
-    <div className={selectedTab === tabName ? "active" : ""}>
-      {selectedTab === tabName?children:children=''}
-    </div>
+    <>
+      {Children.map(
+        children,
+        (child) => selectedTab === child.props.tabName && <>{child}</>
+      )}
+    </>
   );
 };
